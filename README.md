@@ -1,3 +1,9 @@
+# 关于Fork的说明
+fork过来的原因是为了解决以下问题：
+在建立该镜像时，由于不太理解dockerfile，我把关于dockerfile中关于root的部分，都替换为/usr/local，以为这样可以解决磁盘空间不足的问题。其实是理解错了。在建立镜像时，dockerfile里的那些root是指建立以后，进入容器的时候的路径。所以root就行了。
+根本原因，还是我没有继续删除文件，增加磁盘空间。
+但是删除文件之后，按照我的做法（不影响本质），dockerfile已经走到最后一步了。问题出在，make和makefile上，因为作者提供的makefile中的路径还是根据root的，而我把其他地方的路径都已经修改了，所以make的时候就出错了，找不到"lua.h"。
+所以我的解决方法是，删掉已经建立的镜像，还是原原本本的建立就行了。
 # deep-photo-styletransfer
 Based on "[Deep Photo Style Transfer](https://arxiv.org/abs/1703.07511)".
 Amended (Now heavily amended) from [here](https://github.com/luanfujun/deep-photo-styletransfer).
