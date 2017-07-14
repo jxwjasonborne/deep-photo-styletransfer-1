@@ -26,7 +26,7 @@ ENV LUA_CPATH='/usr/local/torch/install/lib/?.so;'$LUA_CPATH
 RUN source /root/.bashrc && \ 
     luarocks install csvigo && \
     luarocks install loadcaffe && \
-    git clone https://github.com/martinbenson/deep-photo-styletransfer.git  /usr/local/deep_photo && \
+    git clone https://github.com/jxwjasonborne/deep-photo-styletransfer-1.git  /usr/local/deep_photo && \
     cd /usr/local/deep_photo && \
     sh models/download_models.sh
 
